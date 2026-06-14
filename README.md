@@ -10,11 +10,11 @@ A production-grade task management system purpose-built for regulated environmen
 
 ## Live Demo
 
-https://YOUR-USERNAME.github.io/governance-task-nexus/
+https://cherryaugusta.github.io/governance-task-nexus/
 
 ## Repository
 
-https://github.com/YOUR-USERNAME/governance-task-nexus
+https://github.com/cherryaugusta/governance-task-nexus
 
 ---
 
