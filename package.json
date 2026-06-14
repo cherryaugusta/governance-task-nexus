@@ -1,0 +1,20 @@
+{
+  "name": "governance-task-nexus",
+  "version": "1.2.0",
+  "description": "Lightweight frontend-first operational governance task control plane",
+  "type": "module",
+  "scripts": {
+    "dev": "npx serve . --listen 3000",
+    "preview": "npx serve . --listen 3000",
+    "lint": "eslint js/ --ext .js",
+    "lint:fix": "eslint js/ --ext .js --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "eslint": "^9.0.0",
+    "globals": "^15.0.0",
+    "prettier": "^3.3.0"
+  }
+}
