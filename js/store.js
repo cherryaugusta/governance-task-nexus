@@ -47,16 +47,16 @@ export function loadFromStorage() {
 export function addTask(fields) {
   const now = new Date().toISOString();
   const task = {
-    id:          crypto.randomUUID(),
-    title:       fields.title.trim(),
+    id: crypto.randomUUID(),
+    title: fields.title.trim(),
     description: (fields.description || "").trim(),
-    category:    fields.category  || "Compliance",
-    priority:    fields.priority  || "Medium",
-    status:      fields.status    || "Pending",
-    dueDate:     fields.dueDate   || "",
-    owner:       (fields.owner || "").trim(),
-    createdAt:   now,
-    updatedAt:   now,
+    category: fields.category || "Compliance",
+    priority: fields.priority || "Medium",
+    status: fields.status || "Pending",
+    dueDate: fields.dueDate || "",
+    owner: (fields.owner || "").trim(),
+    createdAt: now,
+    updatedAt: now,
   };
   _tasks.unshift(task);
   _persist();
@@ -110,9 +110,7 @@ export function getTask(id) {
 
 export function isDuplicateTitle(title, excludeId = null) {
   const normalised = title.trim().toLowerCase();
-  return _tasks.some(
-    (t) => t.title.toLowerCase() === normalised && t.id !== excludeId
-  );
+  return _tasks.some((t) => t.title.toLowerCase() === normalised && t.id !== excludeId);
 }
 
 function _seedData() {

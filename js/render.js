@@ -1,25 +1,25 @@
 const CAT_COLORS = {
-  Compliance:      "var(--cat-compliance)",
-  Evidence:        "var(--cat-evidence)",
-  "AI-Gov":        "var(--cat-aigov)",
-  Audit:           "var(--cat-audit)",
+  Compliance: "var(--cat-compliance)",
+  Evidence: "var(--cat-evidence)",
+  "AI-Gov": "var(--cat-aigov)",
+  Audit: "var(--cat-audit)",
   "Policy Review": "var(--cat-policy)",
-  Regulatory:      "var(--cat-regulatory)",
-  Incident:        "var(--cat-incident)",
+  Regulatory: "var(--cat-regulatory)",
+  Incident: "var(--cat-incident)",
 };
 
 const PRI_COLORS = {
   Critical: "var(--pri-critical)",
-  High:     "var(--pri-high)",
-  Medium:   "var(--pri-medium)",
-  Low:      "var(--pri-low)",
+  High: "var(--pri-high)",
+  Medium: "var(--pri-medium)",
+  Low: "var(--pri-low)",
 };
 
 const ST_COLORS = {
-  Pending:    "var(--status-pending)",
-  "In Review":"var(--status-in-review)",
-  Blocked:    "var(--status-blocked)",
-  Completed:  "var(--status-completed)",
+  Pending: "var(--status-pending)",
+  "In Review": "var(--status-in-review)",
+  Blocked: "var(--status-blocked)",
+  Completed: "var(--status-completed)",
 };
 
 const DATE_FMT = new Intl.DateTimeFormat("en-GB", {
@@ -39,16 +39,14 @@ function _fmtTs(isoFull) {
   const d = new Date(isoFull);
   if (isNaN(d)) return "—";
   return (
-    DATE_FMT.format(d) +
-    " " +
-    d.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })
+    DATE_FMT.format(d) + " " + d.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })
   );
 }
 
 function _dueCls(dueDateStr) {
   if (!dueDateStr) return "";
-  const due  = new Date(dueDateStr);
-  const now  = new Date();
+  const due = new Date(dueDateStr);
+  const now = new Date();
   const diff = (due - now) / 86_400_000;
   if (diff < 0) return "due-overdue";
   if (diff < 2) return "due-soon";
@@ -66,9 +64,9 @@ export function buildTaskCard(task, callbacks) {
   const cbWrap = document.createElement("div");
   cbWrap.className = "task-checkbox-wrap";
   const cb = document.createElement("input");
-  cb.type      = "checkbox";
+  cb.type = "checkbox";
   cb.className = "task-checkbox";
-  cb.checked   = task.status === "Completed";
+  cb.checked = task.status === "Completed";
   cb.setAttribute(
     "aria-label",
     `Mark "${task.title}" as ${cb.checked ? "incomplete" : "complete"}`
@@ -88,22 +86,13 @@ export function buildTaskCard(task, callbacks) {
   titleEl.textContent = task.title;
 
   const catTag = _makeTag("tag-category", task.category);
-  catTag.style.setProperty(
-    "--cat-color",
-    CAT_COLORS[task.category] || "var(--accent)"
-  );
+  catTag.style.setProperty("--cat-color", CAT_COLORS[task.category] || "var(--accent)");
 
   const priTag = _makeTag("tag-priority", task.priority);
-  priTag.style.setProperty(
-    "--pri-color",
-    PRI_COLORS[task.priority] || "var(--warning)"
-  );
+  priTag.style.setProperty("--pri-color", PRI_COLORS[task.priority] || "var(--warning)");
 
   const stTag = _makeTag("tag-status", task.status);
-  stTag.style.setProperty(
-    "--st-color",
-    ST_COLORS[task.status] || "var(--text-muted)"
-  );
+  stTag.style.setProperty("--st-color", ST_COLORS[task.status] || "var(--text-muted)");
 
   titleRow.append(titleEl, catTag, priTag, stTag);
   body.appendChild(titleRow);
@@ -125,7 +114,7 @@ export function buildTaskCard(task, callbacks) {
 
   if (task.dueDate) {
     const fmted = _fmtDate(task.dueDate);
-    const cls   = _dueCls(task.dueDate);
+    const cls = _dueCls(task.dueDate);
     const dueEl = _metaItem("⏱", fmted || task.dueDate);
     if (cls) dueEl.classList.add(cls);
     meta.appendChild(dueEl);
@@ -182,11 +171,11 @@ export function updateStats(allTasks) {
     const el = document.getElementById(id);
     if (el) el.textContent = val;
   };
-  set("stat-total",   allTasks.length);
+  set("stat-total", allTasks.length);
   set("stat-pending", allTasks.filter((t) => t.status === "Pending").length);
-  set("stat-review",  allTasks.filter((t) => t.status === "In Review").length);
+  set("stat-review", allTasks.filter((t) => t.status === "In Review").length);
   set("stat-blocked", allTasks.filter((t) => t.status === "Blocked").length);
-  set("stat-done",    allTasks.filter((t) => t.status === "Completed").length);
+  set("stat-done", allTasks.filter((t) => t.status === "Completed").length);
 }
 
 export function updateBadges(allTasks) {
@@ -194,10 +183,10 @@ export function updateBadges(allTasks) {
     const el = document.getElementById(id);
     if (el) el.textContent = val;
   };
-  set("badge-all",       allTasks.length);
-  set("badge-active",    allTasks.filter((t) => t.status !== "Completed").length);
+  set("badge-all", allTasks.length);
+  set("badge-active", allTasks.filter((t) => t.status !== "Completed").length);
   set("badge-completed", allTasks.filter((t) => t.status === "Completed").length);
-  set("badge-blocked",   allTasks.filter((t) => t.status === "Blocked").length);
+  set("badge-blocked", allTasks.filter((t) => t.status === "Blocked").length);
 }
 
 function _makeTag(cls, text) {
@@ -223,8 +212,5 @@ function _actionBtn(icon, label, isDanger) {
 }
 
 function _esc(str) {
-  return (str || "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
+  return (str || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }

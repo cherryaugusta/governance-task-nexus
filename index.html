@@ -1,274 +1,312 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-theme="dark">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GovernanceTask Nexus — Operational Governance Control Plane</title>
-  <meta name="description" content="Lightweight frontend-first operational governance task control plane for compliance, audit, AI model governance, and regulatory obligations." />
-  <meta name="theme-color" content="#4f6ef7" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
-  <style>
-    .task-card { position: relative; }
-    .task-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(145deg, rgba(79, 110, 247, 0.03), transparent);
-      opacity: 0;
-      transition: opacity 0.2s ease;
-      pointer-events: none;
-      border-radius: inherit;
-    }
-    .task-card:hover::after { opacity: 1; }
-    .governance-stamp {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: 1.5px;
-      color: var(--accent);
-      opacity: 0.6;
-    }
-  </style>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GovernanceTask Nexus — Operational Governance Control Plane</title>
+    <meta
+      name="description"
+      content="Lightweight frontend-first operational governance task control plane for compliance, audit, AI model governance, and regulatory obligations."
+    />
+    <meta name="theme-color" content="#4f6ef7" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+      .task-card {
+        position: relative;
+      }
+      .task-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(145deg, rgba(79, 110, 247, 0.03), transparent);
+        opacity: 0;
+        transition: opacity 0.2s ease;
+        pointer-events: none;
+        border-radius: inherit;
+      }
+      .task-card:hover::after {
+        opacity: 1;
+      }
+      .governance-stamp {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        letter-spacing: 1.5px;
+        color: var(--accent);
+        opacity: 0.6;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="toast-container" role="status" aria-live="polite" aria-atomic="true"></div>
 
-  <div id="toast-container" role="status" aria-live="polite" aria-atomic="true"></div>
-
-  <!-- ADD / EDIT MODAL -->
-  <div id="modal-overlay" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div class="modal-panel">
-      <div class="modal-header">
-        <span class="modal-eyebrow">GOVERNANCE RECORD</span>
-        <h2 id="modal-title">New Task</h2>
-        <button class="modal-close" id="modal-close-btn" aria-label="Close modal">✕</button>
-      </div>
-      <div class="modal-body">
-        <div class="field-group">
-          <label for="task-title">Task Title <span class="required">*</span></label>
-          <input type="text" id="task-title" placeholder="e.g. Review DORA evidence pack for Q2" maxlength="140" autocomplete="off" />
-          <span class="field-hint" id="title-error"></span>
+    <!-- ADD / EDIT MODAL -->
+    <div
+      id="modal-overlay"
+      class="modal-overlay hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+    >
+      <div class="modal-panel">
+        <div class="modal-header">
+          <span class="modal-eyebrow">GOVERNANCE RECORD</span>
+          <h2 id="modal-title">New Task</h2>
+          <button class="modal-close" id="modal-close-btn" aria-label="Close modal">✕</button>
         </div>
-        <div class="field-group">
-          <label for="task-desc">Description / Evidence Notes</label>
-          <textarea id="task-desc" rows="4" placeholder="Context, references, acceptance criteria, or linked policy IDs..."></textarea>
-        </div>
-        <div class="field-row">
+        <div class="modal-body">
           <div class="field-group">
-            <label for="task-category">Category</label>
-            <select id="task-category">
-              <option value="Compliance">Compliance</option>
-              <option value="Evidence">Evidence</option>
-              <option value="AI-Gov">AI-Gov</option>
-              <option value="Audit">Audit</option>
-              <option value="Policy Review">Policy Review</option>
-              <option value="Regulatory">Regulatory</option>
-              <option value="Incident">Incident</option>
-            </select>
-          </div>
-          <div class="field-group">
-            <label for="task-priority">Priority</label>
-            <select id="task-priority">
-              <option value="Low">Low</option>
-              <option value="Medium" selected>Medium</option>
-              <option value="High">High</option>
-              <option value="Critical">Critical</option>
-            </select>
-          </div>
-        </div>
-        <div class="field-row">
-          <div class="field-group">
-            <label for="task-status">Status</label>
-            <select id="task-status">
-              <option value="Pending">Pending</option>
-              <option value="In Review">In Review</option>
-              <option value="Blocked">Blocked</option>
-              <option value="Completed">Completed</option>
-            </select>
-          </div>
-          <div class="field-group">
-            <label for="task-due">Due Date</label>
-            <input type="date" id="task-due" />
-          </div>
-        </div>
-        <div class="field-group">
-          <label for="task-owner">Owner / Assignee</label>
-          <input type="text" id="task-owner" placeholder="e.g. Model Risk Officer" maxlength="80" autocomplete="off" />
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-ghost" id="modal-cancel-btn">Cancel</button>
-        <button class="btn btn-primary" id="modal-save-btn">
-          <span id="modal-save-label">Create Task</span>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- CONFIRM DELETE DIALOG -->
-  <div id="confirm-overlay" class="modal-overlay hidden" role="alertdialog" aria-modal="true" aria-labelledby="confirm-title">
-    <div class="modal-panel modal-panel--sm">
-      <div class="modal-header">
-        <span class="modal-eyebrow danger">AUDIT TRAIL DESTRUCTION</span>
-        <h2 id="confirm-title">Permanently Delete Record</h2>
-      </div>
-      <div class="modal-body">
-        <p class="confirm-message">This action removes the task from the governance control plane. It cannot be recovered.</p>
-        <p class="confirm-task-label" id="confirm-task-label"></p>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-ghost" id="confirm-cancel-btn">Retain Record</button>
-        <button class="btn btn-danger" id="confirm-delete-btn">Delete Permanently</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- APP SHELL -->
-  <div class="app-shell">
-
-    <aside class="sidebar">
-      <div class="sidebar-brand">
-        <div class="brand-mark">GTN</div>
-        <div class="brand-text">
-          <span class="brand-name">GovernanceTask</span>
-          <span class="brand-sub">NEXUS</span>
-        </div>
-      </div>
-
-      <nav class="sidebar-nav" aria-label="Filter navigation">
-        <p class="nav-section-label">Control Views</p>
-        <button class="nav-item active" data-filter-view="all">
-          <span class="nav-icon">◈</span> All Records
-          <span class="nav-badge" id="badge-all">0</span>
-        </button>
-        <button class="nav-item" data-filter-view="active">
-          <span class="nav-icon">◉</span> Active
-          <span class="nav-badge" id="badge-active">0</span>
-        </button>
-        <button class="nav-item" data-filter-view="completed">
-          <span class="nav-icon">◎</span> Completed
-          <span class="nav-badge" id="badge-completed">0</span>
-        </button>
-        <button class="nav-item" data-filter-view="blocked">
-          <span class="nav-icon">⊗</span> Blocked
-          <span class="nav-badge" id="badge-blocked">0</span>
-        </button>
-
-        <p class="nav-section-label">Obligation Domains</p>
-        <button class="nav-item" data-filter-category="Compliance">
-          <span class="cat-dot cat--compliance"></span> Compliance
-        </button>
-        <button class="nav-item" data-filter-category="Evidence">
-          <span class="cat-dot cat--evidence"></span> Evidence
-        </button>
-        <button class="nav-item" data-filter-category="AI-Gov">
-          <span class="cat-dot cat--aigov"></span> AI-Gov
-        </button>
-        <button class="nav-item" data-filter-category="Audit">
-          <span class="cat-dot cat--audit"></span> Audit
-        </button>
-        <button class="nav-item" data-filter-category="Policy Review">
-          <span class="cat-dot cat--policy"></span> Policy Review
-        </button>
-        <button class="nav-item" data-filter-category="Regulatory">
-          <span class="cat-dot cat--regulatory"></span> Regulatory
-        </button>
-        <button class="nav-item" data-filter-category="Incident">
-          <span class="cat-dot cat--incident"></span> Incident
-        </button>
-      </nav>
-
-      <div class="sidebar-footer">
-        <button class="btn-icon-label" id="theme-toggle-btn" aria-label="Toggle colour theme">
-          <span id="theme-icon">☀</span>
-          <span id="theme-label">Light mode</span>
-        </button>
-        <button class="btn-icon-label" id="export-btn" aria-label="Export tasks as JSON">
-          <span>⬇</span> Export JSON
-        </button>
-        <button class="btn-icon-label danger" id="clear-btn" aria-label="Clear all tasks">
-          <span>⌫</span> Clear Plane
-        </button>
-      </div>
-    </aside>
-
-    <main class="main-content">
-
-      <header class="topbar">
-        <div class="topbar-left">
-          <h1 class="page-title">Task Control Plane</h1>
-          <span class="page-subtitle">Governance • Traceability • AI Alignment</span>
-        </div>
-        <div class="topbar-right">
-          <div class="search-wrapper">
-            <span class="search-icon" aria-hidden="true">⌕</span>
+            <label for="task-title">Task Title <span class="required">*</span></label>
             <input
-              type="search"
-              id="search-input"
-              placeholder="Search titles, owners, evidence notes..."
-              aria-label="Search tasks"
+              type="text"
+              id="task-title"
+              placeholder="e.g. Review DORA evidence pack for Q2"
+              maxlength="140"
+              autocomplete="off"
+            />
+            <span class="field-hint" id="title-error"></span>
+          </div>
+          <div class="field-group">
+            <label for="task-desc">Description / Evidence Notes</label>
+            <textarea
+              id="task-desc"
+              rows="4"
+              placeholder="Context, references, acceptance criteria, or linked policy IDs..."
+            ></textarea>
+          </div>
+          <div class="field-row">
+            <div class="field-group">
+              <label for="task-category">Category</label>
+              <select id="task-category">
+                <option value="Compliance">Compliance</option>
+                <option value="Evidence">Evidence</option>
+                <option value="AI-Gov">AI-Gov</option>
+                <option value="Audit">Audit</option>
+                <option value="Policy Review">Policy Review</option>
+                <option value="Regulatory">Regulatory</option>
+                <option value="Incident">Incident</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label for="task-priority">Priority</label>
+              <select id="task-priority">
+                <option value="Low">Low</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="High">High</option>
+                <option value="Critical">Critical</option>
+              </select>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field-group">
+              <label for="task-status">Status</label>
+              <select id="task-status">
+                <option value="Pending">Pending</option>
+                <option value="In Review">In Review</option>
+                <option value="Blocked">Blocked</option>
+                <option value="Completed">Completed</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label for="task-due">Due Date</label>
+              <input type="date" id="task-due" />
+            </div>
+          </div>
+          <div class="field-group">
+            <label for="task-owner">Owner / Assignee</label>
+            <input
+              type="text"
+              id="task-owner"
+              placeholder="e.g. Model Risk Officer"
+              maxlength="80"
               autocomplete="off"
             />
           </div>
-          <button class="btn btn-primary" id="add-task-btn">+ New Record</button>
         </div>
-      </header>
-
-      <div class="filter-bar" role="toolbar" aria-label="Priority and sort filters">
-        <span class="filter-label">Priority Filter</span>
-        <button class="chip chip-active" data-priority-filter="all">All</button>
-        <button class="chip" data-priority-filter="Critical">Critical</button>
-        <button class="chip" data-priority-filter="High">High</button>
-        <button class="chip" data-priority-filter="Medium">Medium</button>
-        <button class="chip" data-priority-filter="Low">Low</button>
-        <div class="filter-divider"></div>
-        <span class="filter-label">Sort</span>
-        <select id="sort-select" aria-label="Sort tasks">
-          <option value="created-desc">Newest first</option>
-          <option value="created-asc">Oldest first</option>
-          <option value="due-asc">Due date ↑</option>
-          <option value="priority-desc">Priority ↓</option>
-          <option value="title-asc">Title A–Z</option>
-        </select>
-      </div>
-
-      <div class="stats-row" aria-label="Task statistics">
-        <div class="stat-card">
-          <span class="stat-num" id="stat-total">0</span>
-          <span class="stat-lbl">Total</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-num stat--pending" id="stat-pending">0</span>
-          <span class="stat-lbl">Pending</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-num stat--review" id="stat-review">0</span>
-          <span class="stat-lbl">In Review</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-num stat--blocked" id="stat-blocked">0</span>
-          <span class="stat-lbl">Blocked</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-num stat--done" id="stat-done">0</span>
-          <span class="stat-lbl">Completed</span>
+        <div class="modal-footer">
+          <button class="btn btn-ghost" id="modal-cancel-btn">Cancel</button>
+          <button class="btn btn-primary" id="modal-save-btn">
+            <span id="modal-save-label">Create Task</span>
+          </button>
         </div>
       </div>
+    </div>
 
-      <section class="task-section" aria-label="Task list">
-        <div id="task-list" class="task-list" role="list"></div>
-        <div id="empty-state" class="empty-state hidden" aria-live="polite">
-          <div class="empty-icon">◈</div>
-          <p class="empty-title">Control plane is clear</p>
-          <p class="empty-sub">Create a new governance obligation, evidence task, or audit item to begin.</p>
-          <button class="btn btn-primary" id="empty-add-btn">+ Initialize First Record</button>
+    <!-- CONFIRM DELETE DIALOG -->
+    <div
+      id="confirm-overlay"
+      class="modal-overlay hidden"
+      role="alertdialog"
+      aria-modal="true"
+      aria-labelledby="confirm-title"
+    >
+      <div class="modal-panel modal-panel--sm">
+        <div class="modal-header">
+          <span class="modal-eyebrow danger">AUDIT TRAIL DESTRUCTION</span>
+          <h2 id="confirm-title">Permanently Delete Record</h2>
         </div>
-      </section>
+        <div class="modal-body">
+          <p class="confirm-message">
+            This action removes the task from the governance control plane. It cannot be recovered.
+          </p>
+          <p class="confirm-task-label" id="confirm-task-label"></p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-ghost" id="confirm-cancel-btn">Retain Record</button>
+          <button class="btn btn-danger" id="confirm-delete-btn">Delete Permanently</button>
+        </div>
+      </div>
+    </div>
 
-    </main>
-  </div>
+    <!-- APP SHELL -->
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="sidebar-brand">
+          <div class="brand-mark">GTN</div>
+          <div class="brand-text">
+            <span class="brand-name">GovernanceTask</span>
+            <span class="brand-sub">NEXUS</span>
+          </div>
+        </div>
 
-  <script type="module" src="js/app.js"></script>
-</body>
+        <nav class="sidebar-nav" aria-label="Filter navigation">
+          <p class="nav-section-label">Control Views</p>
+          <button class="nav-item active" data-filter-view="all">
+            <span class="nav-icon">◈</span> All Records
+            <span class="nav-badge" id="badge-all">0</span>
+          </button>
+          <button class="nav-item" data-filter-view="active">
+            <span class="nav-icon">◉</span> Active
+            <span class="nav-badge" id="badge-active">0</span>
+          </button>
+          <button class="nav-item" data-filter-view="completed">
+            <span class="nav-icon">◎</span> Completed
+            <span class="nav-badge" id="badge-completed">0</span>
+          </button>
+          <button class="nav-item" data-filter-view="blocked">
+            <span class="nav-icon">⊗</span> Blocked
+            <span class="nav-badge" id="badge-blocked">0</span>
+          </button>
+
+          <p class="nav-section-label">Obligation Domains</p>
+          <button class="nav-item" data-filter-category="Compliance">
+            <span class="cat-dot cat--compliance"></span> Compliance
+          </button>
+          <button class="nav-item" data-filter-category="Evidence">
+            <span class="cat-dot cat--evidence"></span> Evidence
+          </button>
+          <button class="nav-item" data-filter-category="AI-Gov">
+            <span class="cat-dot cat--aigov"></span> AI-Gov
+          </button>
+          <button class="nav-item" data-filter-category="Audit">
+            <span class="cat-dot cat--audit"></span> Audit
+          </button>
+          <button class="nav-item" data-filter-category="Policy Review">
+            <span class="cat-dot cat--policy"></span> Policy Review
+          </button>
+          <button class="nav-item" data-filter-category="Regulatory">
+            <span class="cat-dot cat--regulatory"></span> Regulatory
+          </button>
+          <button class="nav-item" data-filter-category="Incident">
+            <span class="cat-dot cat--incident"></span> Incident
+          </button>
+        </nav>
+
+        <div class="sidebar-footer">
+          <button class="btn-icon-label" id="theme-toggle-btn" aria-label="Toggle colour theme">
+            <span id="theme-icon">☀</span>
+            <span id="theme-label">Light mode</span>
+          </button>
+          <button class="btn-icon-label" id="export-btn" aria-label="Export tasks as JSON">
+            <span>⬇</span> Export JSON
+          </button>
+          <button class="btn-icon-label danger" id="clear-btn" aria-label="Clear all tasks">
+            <span>⌫</span> Clear Plane
+          </button>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div class="topbar-left">
+            <h1 class="page-title">Task Control Plane</h1>
+            <span class="page-subtitle">Governance • Traceability • AI Alignment</span>
+          </div>
+          <div class="topbar-right">
+            <div class="search-wrapper">
+              <span class="search-icon" aria-hidden="true">⌕</span>
+              <input
+                type="search"
+                id="search-input"
+                placeholder="Search titles, owners, evidence notes..."
+                aria-label="Search tasks"
+                autocomplete="off"
+              />
+            </div>
+            <button class="btn btn-primary" id="add-task-btn">+ New Record</button>
+          </div>
+        </header>
+
+        <div class="filter-bar" role="toolbar" aria-label="Priority and sort filters">
+          <span class="filter-label">Priority Filter</span>
+          <button class="chip chip-active" data-priority-filter="all">All</button>
+          <button class="chip" data-priority-filter="Critical">Critical</button>
+          <button class="chip" data-priority-filter="High">High</button>
+          <button class="chip" data-priority-filter="Medium">Medium</button>
+          <button class="chip" data-priority-filter="Low">Low</button>
+          <div class="filter-divider"></div>
+          <span class="filter-label">Sort</span>
+          <select id="sort-select" aria-label="Sort tasks">
+            <option value="created-desc">Newest first</option>
+            <option value="created-asc">Oldest first</option>
+            <option value="due-asc">Due date ↑</option>
+            <option value="priority-desc">Priority ↓</option>
+            <option value="title-asc">Title A–Z</option>
+          </select>
+        </div>
+
+        <div class="stats-row" aria-label="Task statistics">
+          <div class="stat-card">
+            <span class="stat-num" id="stat-total">0</span>
+            <span class="stat-lbl">Total</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num stat--pending" id="stat-pending">0</span>
+            <span class="stat-lbl">Pending</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num stat--review" id="stat-review">0</span>
+            <span class="stat-lbl">In Review</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num stat--blocked" id="stat-blocked">0</span>
+            <span class="stat-lbl">Blocked</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num stat--done" id="stat-done">0</span>
+            <span class="stat-lbl">Completed</span>
+          </div>
+        </div>
+
+        <section class="task-section" aria-label="Task list">
+          <div id="task-list" class="task-list" role="list"></div>
+          <div id="empty-state" class="empty-state hidden" aria-live="polite">
+            <div class="empty-icon">◈</div>
+            <p class="empty-title">Control plane is clear</p>
+            <p class="empty-sub">
+              Create a new governance obligation, evidence task, or audit item to begin.
+            </p>
+            <button class="btn btn-primary" id="empty-add-btn">+ Initialize First Record</button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+  </body>
 </html>

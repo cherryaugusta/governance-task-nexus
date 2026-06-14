@@ -1,28 +1,39 @@
 import { isDuplicateTitle } from "./store.js";
 
-let $overlay, $titleInput, $descInput, $categorySelect, $prioritySelect,
-    $statusSelect, $dueDateInput, $ownerInput, $titleError,
-    $saveBtn, $saveLbl, $modalTitle, $cancelBtn, $closeBtn;
+let $overlay,
+  $titleInput,
+  $descInput,
+  $categorySelect,
+  $prioritySelect,
+  $statusSelect,
+  $dueDateInput,
+  $ownerInput,
+  $titleError,
+  $saveBtn,
+  $saveLbl,
+  $modalTitle,
+  $cancelBtn,
+  $closeBtn;
 
 function _init() {
   if ($overlay) return;
-  $overlay        = document.getElementById("modal-overlay");
-  $titleInput     = document.getElementById("task-title");
-  $descInput      = document.getElementById("task-desc");
+  $overlay = document.getElementById("modal-overlay");
+  $titleInput = document.getElementById("task-title");
+  $descInput = document.getElementById("task-desc");
   $categorySelect = document.getElementById("task-category");
   $prioritySelect = document.getElementById("task-priority");
-  $statusSelect   = document.getElementById("task-status");
-  $dueDateInput   = document.getElementById("task-due");
-  $ownerInput     = document.getElementById("task-owner");
-  $titleError     = document.getElementById("title-error");
-  $saveBtn        = document.getElementById("modal-save-btn");
-  $saveLbl        = document.getElementById("modal-save-label");
-  $modalTitle     = document.getElementById("modal-title");
-  $cancelBtn      = document.getElementById("modal-cancel-btn");
-  $closeBtn       = document.getElementById("modal-close-btn");
+  $statusSelect = document.getElementById("task-status");
+  $dueDateInput = document.getElementById("task-due");
+  $ownerInput = document.getElementById("task-owner");
+  $titleError = document.getElementById("title-error");
+  $saveBtn = document.getElementById("modal-save-btn");
+  $saveLbl = document.getElementById("modal-save-label");
+  $modalTitle = document.getElementById("modal-title");
+  $cancelBtn = document.getElementById("modal-cancel-btn");
+  $closeBtn = document.getElementById("modal-close-btn");
 }
 
-let _currentEditId  = null;
+let _currentEditId = null;
 let _onSaveCallback = null;
 
 export function wireModalEvents(onSave) {
@@ -50,7 +61,7 @@ export function openAddModal() {
   _init();
   _currentEditId = null;
   $modalTitle.textContent = "New Task";
-  $saveLbl.textContent    = "Create Task";
+  $saveLbl.textContent = "Create Task";
   _clearFields();
   _clearTitleError();
   _openOverlay();
@@ -61,15 +72,15 @@ export function openEditModal(task) {
   _init();
   _currentEditId = task.id;
   $modalTitle.textContent = "Edit Task";
-  $saveLbl.textContent    = "Save Changes";
+  $saveLbl.textContent = "Save Changes";
 
-  $titleInput.value     = task.title;
-  $descInput.value      = task.description || "";
+  $titleInput.value = task.title;
+  $descInput.value = task.description || "";
   $categorySelect.value = task.category;
   $prioritySelect.value = task.priority;
-  $statusSelect.value   = task.status;
-  $dueDateInput.value   = task.dueDate || "";
-  $ownerInput.value     = task.owner || "";
+  $statusSelect.value = task.status;
+  $dueDateInput.value = task.dueDate || "";
+  $ownerInput.value = task.owner || "";
 
   _clearTitleError();
   _openOverlay();
@@ -87,13 +98,13 @@ function _openOverlay() {
 }
 
 function _clearFields() {
-  $titleInput.value     = "";
-  $descInput.value      = "";
+  $titleInput.value = "";
+  $descInput.value = "";
   $categorySelect.value = "Compliance";
   $prioritySelect.value = "Medium";
-  $statusSelect.value   = "Pending";
-  $dueDateInput.value   = "";
-  $ownerInput.value     = "";
+  $statusSelect.value = "Pending";
+  $dueDateInput.value = "";
+  $ownerInput.value = "";
 }
 
 function _clearTitleError() {
@@ -121,15 +132,15 @@ function _handleSave() {
   const fields = {
     title,
     description: $descInput.value.trim(),
-    category:    $categorySelect.value,
-    priority:    $prioritySelect.value,
-    status:      $statusSelect.value,
-    dueDate:     $dueDateInput.value,
-    owner:       $ownerInput.value.trim(),
+    category: $categorySelect.value,
+    priority: $prioritySelect.value,
+    status: $statusSelect.value,
+    dueDate: $dueDateInput.value,
+    owner: $ownerInput.value.trim(),
   };
 
   _onSaveCallback?.({
-    id:     _currentEditId,
+    id: _currentEditId,
     fields,
     isEdit: _currentEditId !== null,
   });
@@ -143,8 +154,8 @@ let _onDeleteConfirm = null;
 
 function _initConfirm() {
   if ($confirmOverlay) return;
-  $confirmOverlay   = document.getElementById("confirm-overlay");
-  $confirmLabel     = document.getElementById("confirm-task-label");
+  $confirmOverlay = document.getElementById("confirm-overlay");
+  $confirmLabel = document.getElementById("confirm-task-label");
   $confirmDeleteBtn = document.getElementById("confirm-delete-btn");
   $confirmCancelBtn = document.getElementById("confirm-cancel-btn");
 }
@@ -164,10 +175,7 @@ export function wireConfirmEvents(_onDelete) {
   });
 
   document.addEventListener("keydown", (e) => {
-    if (
-      e.key === "Escape" &&
-      !$confirmOverlay.classList.contains("hidden")
-    ) {
+    if (e.key === "Escape" && !$confirmOverlay.classList.contains("hidden")) {
       closeConfirm();
     }
   });

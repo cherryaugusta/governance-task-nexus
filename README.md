@@ -21,39 +21,51 @@ https://github.com/cherryaugusta/governance-task-nexus
 ## Screenshots
 
 ### Dashboard — Dark Mode
+
 ![Dashboard dark mode](assets/screenshots/01-dashboard-dark.png)
 
 ### Dashboard — Light Mode
+
 ![Dashboard light mode](assets/screenshots/02-dashboard-light.png)
 
 ### Add Task Modal
+
 ![Add task modal](assets/screenshots/03-add-task-modal.png)
 
 ### Edit Task Modal
+
 ![Edit task modal](assets/screenshots/04-edit-task-modal.png)
 
 ### Search and Filter
+
 ![Search filter](assets/screenshots/05-search-filter.png)
 
 ### Category Filter (AI-Gov)
+
 ![Category filter](assets/screenshots/06-category-filter.png)
 
 ### Priority Chip Filter
+
 ![Priority chips](assets/screenshots/07-priority-chips.png)
 
 ### Delete Confirmation Dialog
+
 ![Delete confirm](assets/screenshots/08-delete-confirm.png)
 
 ### Toast Notification
+
 ![Toast notification](assets/screenshots/09-toast-success.png)
 
 ### JSON Export
+
 ![JSON export](assets/screenshots/10-export-json.png)
 
 ### Empty State
+
 ![Empty state](assets/screenshots/11-empty-state.png)
 
 ### Mobile Responsive View
+
 ![Mobile view](assets/screenshots/12-mobile-view.png)
 
 ---
@@ -83,7 +95,7 @@ https://github.com/cherryaugusta/governance-task-nexus
 ## Tech Stack
 
 | Layer       | Technology                                    |
-|-------------|-----------------------------------------------|
+| ----------- | --------------------------------------------- |
 | Markup      | Vanilla HTML5 with semantic elements and ARIA |
 | Styles      | CSS3 with Custom Properties (design tokens)   |
 | Logic       | ES6+ JavaScript Modules (no bundler needed)   |

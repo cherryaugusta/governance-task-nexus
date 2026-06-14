@@ -24,14 +24,14 @@ import { showToast } from "./toast.js";
 
 // ── Application state ─────────────────────────────────────────
 const state = {
-  viewFilter:     "all",
+  viewFilter: "all",
   categoryFilter: null,
   priorityFilter: "all",
-  searchQuery:    "",
-  sortKey:        "created-desc",
+  searchQuery: "",
+  sortKey: "created-desc",
 };
 
-const $taskList   = document.getElementById("task-list");
+const $taskList = document.getElementById("task-list");
 const $emptyState = document.getElementById("empty-state");
 
 // ── Bootstrap ─────────────────────────────────────────────────
@@ -54,9 +54,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ── UI Refresh ────────────────────────────────────────────────
 function _refreshUI() {
-  const all      = getTasks();
+  const all = getTasks();
   const filtered = _applyFilters(all);
-  const sorted   = _applySort(filtered);
+  const sorted = _applySort(filtered);
 
   renderTaskList($taskList, $emptyState, sorted, {
     onEdit: (id) => {
@@ -75,10 +75,7 @@ function _refreshUI() {
       toggleComplete(id);
       const t = getTask(id);
       if (!t) return;
-      showToast(
-        t.status === "Completed" ? "Task marked complete." : "Task reopened.",
-        "success"
-      );
+      showToast(t.status === "Completed" ? "Task marked complete." : "Task reopened.", "success");
     },
   });
 
@@ -100,9 +97,9 @@ function handleModalSave({ id, fields, isEdit }) {
 // ── Filtering ─────────────────────────────────────────────────
 function _applyFilters(tasks) {
   return tasks.filter((t) => {
-    if (state.viewFilter === "active"    && t.status === "Completed") return false;
+    if (state.viewFilter === "active" && t.status === "Completed") return false;
     if (state.viewFilter === "completed" && t.status !== "Completed") return false;
-    if (state.viewFilter === "blocked"   && t.status !== "Blocked")   return false;
+    if (state.viewFilter === "blocked" && t.status !== "Blocked") return false;
 
     if (state.categoryFilter && t.category !== state.categoryFilter) return false;
 
@@ -110,10 +107,7 @@ function _applyFilters(tasks) {
 
     if (state.searchQuery) {
       const q = state.searchQuery.toLowerCase();
-      const haystack = [
-        t.title, t.description, t.category,
-        t.owner, t.priority, t.status,
-      ]
+      const haystack = [t.title, t.description, t.category, t.owner, t.priority, t.status]
         .join(" ")
         .toLowerCase();
       if (!haystack.includes(q)) return false;
@@ -142,8 +136,7 @@ function _applySort(tasks) {
       });
     case "priority-desc":
       return arr.sort(
-        (a, b) =>
-          (PRIORITY_ORDER[b.priority] || 0) - (PRIORITY_ORDER[a.priority] || 0)
+        (a, b) => (PRIORITY_ORDER[b.priority] || 0) - (PRIORITY_ORDER[a.priority] || 0)
       );
     case "title-asc":
       return arr.sort((a, b) => a.title.localeCompare(b.title));
@@ -156,15 +149,13 @@ function _applySort(tasks) {
 function _wireNavFilters() {
   document.querySelectorAll("[data-filter-view]").forEach((btn) => {
     btn.addEventListener("click", () => {
-      state.viewFilter     = btn.dataset.filterView;
+      state.viewFilter = btn.dataset.filterView;
       state.categoryFilter = null;
 
-      document.querySelectorAll("[data-filter-view]").forEach((b) =>
-        b.classList.remove("active")
-      );
-      document.querySelectorAll("[data-filter-category]").forEach((b) =>
-        b.classList.remove("active")
-      );
+      document.querySelectorAll("[data-filter-view]").forEach((b) => b.classList.remove("active"));
+      document
+        .querySelectorAll("[data-filter-category]")
+        .forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
       _refreshUI();
     });
@@ -172,23 +163,19 @@ function _wireNavFilters() {
 
   document.querySelectorAll("[data-filter-category]").forEach((btn) => {
     btn.addEventListener("click", () => {
-      const cat            = btn.dataset.filterCategory;
+      const cat = btn.dataset.filterCategory;
       state.categoryFilter = state.categoryFilter === cat ? null : cat;
-      state.viewFilter     = "all";
+      state.viewFilter = "all";
 
-      document.querySelectorAll("[data-filter-view]").forEach((b) =>
-        b.classList.remove("active")
-      );
-      document.querySelectorAll("[data-filter-category]").forEach((b) =>
-        b.classList.remove("active")
-      );
+      document.querySelectorAll("[data-filter-view]").forEach((b) => b.classList.remove("active"));
+      document
+        .querySelectorAll("[data-filter-category]")
+        .forEach((b) => b.classList.remove("active"));
 
       if (state.categoryFilter) {
         btn.classList.add("active");
       } else {
-        document
-          .querySelector('[data-filter-view="all"]')
-          ?.classList.add("active");
+        document.querySelector('[data-filter-view="all"]')?.classList.add("active");
       }
 
       _refreshUI();
@@ -252,8 +239,8 @@ function _wireEmptyAdd() {
 }
 
 function _wireTheme() {
-  const $btn   = document.getElementById("theme-toggle-btn");
-  const $icon  = document.getElementById("theme-icon");
+  const $btn = document.getElementById("theme-toggle-btn");
+  const $icon = document.getElementById("theme-icon");
   const $label = document.getElementById("theme-label");
 
   const saved = localStorage.getItem("gtn_theme") || "dark";
@@ -262,7 +249,7 @@ function _wireTheme() {
 
   $btn.addEventListener("click", () => {
     const current = document.documentElement.getAttribute("data-theme") || "dark";
-    const next    = current === "dark" ? "light" : "dark";
+    const next = current === "dark" ? "light" : "dark";
     document.documentElement.setAttribute("data-theme", next);
     localStorage.setItem("gtn_theme", next);
     _updateThemeUI(next, $icon, $label);
@@ -271,10 +258,10 @@ function _wireTheme() {
 
 function _updateThemeUI(theme, $icon, $label) {
   if (theme === "dark") {
-    $icon.textContent  = "☀";
+    $icon.textContent = "☀";
     $label.textContent = "Light mode";
   } else {
-    $icon.textContent  = "☾";
+    $icon.textContent = "☾";
     $label.textContent = "Dark mode";
   }
 }
@@ -289,9 +276,9 @@ function _exportJSON() {
   }
 
   const payload = {
-    exportedAt:       new Date().toISOString(),
-    application:      "GovernanceTask Nexus",
-    version:          "1.2.0",
+    exportedAt: new Date().toISOString(),
+    application: "GovernanceTask Nexus",
+    version: "1.2.0",
     portfolioContext:
       "Aligned with consumer-duty-evidence-engine, agentic-compliance-auditor, and ai-model-governance-workbench",
     taskCount: tasks.length,
@@ -302,16 +289,13 @@ function _exportJSON() {
     type: "application/json",
   });
   const url = URL.createObjectURL(blob);
-  const a   = document.createElement("a");
-  a.href     = url;
+  const a = document.createElement("a");
+  a.href = url;
   a.download = `gtn-export-${new Date().toISOString().slice(0, 10)}.json`;
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
 
-  showToast(
-    `Exported ${tasks.length} task${tasks.length !== 1 ? "s" : ""}.`,
-    "success"
-  );
+  showToast(`Exported ${tasks.length} task${tasks.length !== 1 ? "s" : ""}.`, "success");
 }

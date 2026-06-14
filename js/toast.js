@@ -1,15 +1,15 @@
 const ICONS = {
   success: "✓",
-  error:   "✕",
-  warn:    "⚠",
-  info:    "ℹ",
+  error: "✕",
+  warn: "⚠",
+  info: "ℹ",
 };
 
 const DURATIONS = {
   success: 3000,
-  error:   5000,
-  warn:    4000,
-  info:    3500,
+  error: 5000,
+  warn: 4000,
+  info: 3500,
 };
 
 let _container = null;
@@ -48,8 +48,5 @@ export function showToast(message, type = "info") {
 }
 
 function _esc(str) {
-  return (str || "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
+  return (str || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
