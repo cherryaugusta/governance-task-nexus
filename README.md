@@ -87,27 +87,27 @@ GovernanceTask Nexus sits at the intersection of every governance, compliance, a
 
 ### Seed Tasks
 
-| Seed task in GovernanceTask Nexus                          | Portfolio project it reflects |
-|------------------------------------------------------------|-------------------------------|
-| Complete DORA evidence pack for Q2 submission             | **[Consumer Duty Evidence Engine](https://github.com/cherryaugusta/consumer-duty-evidence-engine)** |
+| Seed task in GovernanceTask Nexus                          | Portfolio project it reflects                                                                       |
+| ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| Complete DORA evidence pack for Q2 submission              | **[Consumer Duty Evidence Engine](https://github.com/cherryaugusta/consumer-duty-evidence-engine)** |
 | Audit trail reconciliation for Consumer Duty outcomes      | **[Consumer Duty Evidence Engine](https://github.com/cherryaugusta/consumer-duty-evidence-engine)** |
-| Review AI model governance policy v2.4 against PS24/16     | **[Agentic Compliance Auditor](https://github.com/cherryaugusta/agentic-compliance-auditor)** |
-| Update sanctions screening policy to reflect OFSI guidance | **[Agentic Compliance Auditor](https://github.com/cherryaugusta/agentic-compliance-auditor)** |
+| Review AI model governance policy v2.4 against PS24/16     | **[Agentic Compliance Auditor](https://github.com/cherryaugusta/agentic-compliance-auditor)**       |
+| Update sanctions screening policy to reflect OFSI guidance | **[Agentic Compliance Auditor](https://github.com/cherryaugusta/agentic-compliance-auditor)**       |
 | Prompt versioning gate review — LLM v3.1 release           | **[AI Model Governance Workbench](https://github.com/cherryaugusta/ai-model-governance-workbench)** |
-| PolicyPulse regulatory horizon-scan — June 2025            | **[PolicyPulse](https://github.com/cherryaugusta/policypulse)** |
-| Incident post-mortem — OpsSentinel false-positive spike    | **[OpsSentinel](https://github.com/cherryaugusta/OpsSentinel)** |
+| PolicyPulse regulatory horizon-scan — June 2025            | **[PolicyPulse](https://github.com/cherryaugusta/policypulse)**                                     |
+| Incident post-mortem — OpsSentinel false-positive spike    | **[OpsSentinel](https://github.com/cherryaugusta/OpsSentinel)**                                     |
 
 ### Category Alignment
 
-| Category       | Aligned projects |
-|----------------|------------------|
-| **Compliance** | [Consumer Duty Evidence Engine](https://github.com/cherryaugusta/consumer-duty-evidence-engine) · [Agentic Compliance Auditor](https://github.com/cherryaugusta/agentic-compliance-auditor) · [EcoRoute LEZ Optimiser](https://github.com/cherryaugusta/EcoRoute-LEZ-Optimiser) |
-| **Evidence**   | [Consumer Duty Evidence Engine](https://github.com/cherryaugusta/consumer-duty-evidence-engine) |
-| **AI-Gov**     | [AI Model Governance Workbench](https://github.com/cherryaugusta/ai-model-governance-workbench) |
-| **Audit**      | [Consumer Duty Evidence Engine](https://github.com/cherryaugusta/consumer-duty-evidence-engine) · [Agentic Compliance Auditor](https://github.com/cherryaugusta/agentic-compliance-auditor) |
-| **Policy Review** | [Agentic Compliance Auditor](https://github.com/cherryaugusta/agentic-compliance-auditor) · [PolicyPulse](https://github.com/cherryaugusta/policypulse) · [LondonPlan RAG](https://github.com/cherryaugusta/londonplan-rag) |
-| **Regulatory** | [PolicyPulse](https://github.com/cherryaugusta/policypulse) · [FinCrime GraphOps](https://github.com/cherryaugusta/fincrime-graphops) · [EcoRoute LEZ Optimiser](https://github.com/cherryaugusta/EcoRoute-LEZ-Optimiser) |
-| **Incident**   | [OpsSentinel](https://github.com/cherryaugusta/OpsSentinel) |
+| Category          | Aligned projects                                                                                                                                                                                                                                                                |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Compliance**    | [Consumer Duty Evidence Engine](https://github.com/cherryaugusta/consumer-duty-evidence-engine) · [Agentic Compliance Auditor](https://github.com/cherryaugusta/agentic-compliance-auditor) · [EcoRoute LEZ Optimiser](https://github.com/cherryaugusta/EcoRoute-LEZ-Optimiser) |
+| **Evidence**      | [Consumer Duty Evidence Engine](https://github.com/cherryaugusta/consumer-duty-evidence-engine)                                                                                                                                                                                 |
+| **AI-Gov**        | [AI Model Governance Workbench](https://github.com/cherryaugusta/ai-model-governance-workbench)                                                                                                                                                                                 |
+| **Audit**         | [Consumer Duty Evidence Engine](https://github.com/cherryaugusta/consumer-duty-evidence-engine) · [Agentic Compliance Auditor](https://github.com/cherryaugusta/agentic-compliance-auditor)                                                                                     |
+| **Policy Review** | [Agentic Compliance Auditor](https://github.com/cherryaugusta/agentic-compliance-auditor) · [PolicyPulse](https://github.com/cherryaugusta/policypulse) · [LondonPlan RAG](https://github.com/cherryaugusta/londonplan-rag)                                                     |
+| **Regulatory**    | [PolicyPulse](https://github.com/cherryaugusta/policypulse) · [FinCrime GraphOps](https://github.com/cherryaugusta/fincrime-graphops) · [EcoRoute LEZ Optimiser](https://github.com/cherryaugusta/EcoRoute-LEZ-Optimiser)                                                       |
+| **Incident**      | [OpsSentinel](https://github.com/cherryaugusta/OpsSentinel)                                                                                                                                                                                                                     |
 
 The JSON export payload explicitly records this alignment.
 
@@ -137,15 +137,15 @@ The JSON export payload explicitly records this alignment.
 
 ## Tech Stack
 
-| Layer          | Technology |
-|----------------|----------|
-| Markup         | Vanilla HTML5 + semantic elements + ARIA |
-| Styles         | CSS3 with Custom Properties (design tokens) |
-| Logic          | ES6+ JavaScript Modules (no bundler) |
-| Fonts          | IBM Plex Mono + Inter via Google Fonts |
-| Persistence    | Web Storage API (`localStorage`) |
-| Deployment     | GitHub Pages via GitHub Actions |
-| Dev tools      | ESLint + Prettier (zero runtime dependencies) |
+| Layer       | Technology                                    |
+| ----------- | --------------------------------------------- |
+| Markup      | Vanilla HTML5 + semantic elements + ARIA      |
+| Styles      | CSS3 with Custom Properties (design tokens)   |
+| Logic       | ES6+ JavaScript Modules (no bundler)          |
+| Fonts       | IBM Plex Mono + Inter via Google Fonts        |
+| Persistence | Web Storage API (`localStorage`)              |
+| Deployment  | GitHub Pages via GitHub Actions               |
+| Dev tools   | ESLint + Prettier (zero runtime dependencies) |
 
 ---
 
