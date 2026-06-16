@@ -85,27 +85,27 @@ https://github.com/cherryaugusta/governance-task-nexus
 
 GovernanceTask Nexus sits at the intersection of every governance, compliance, and AI-oversight project in this portfolio. The seven seed tasks that load on first launch are drawn directly from real obligations those systems surface:
 
-| Seed task in GovernanceTask Nexus | Portfolio project it reflects |
-| --- | --- |
-| Complete DORA evidence pack for Q2 submission | [Consumer Duty Evidence Engine](https://github.com/cherryaugusta/consumer-duty-evidence-engine) — AI-assisted evidence review workflow for regulated-style artefacts, featuring structured claim extraction, evidence sufficiency scoring, contradiction detection, and audit-ready traceability |
-| Audit trail reconciliation for Consumer Duty outcomes | [Consumer Duty Evidence Engine](https://github.com/cherryaugusta/consumer-duty-evidence-engine) — human-in-the-loop review routing and evaluation-driven safeguards for board-approved thresholds |
-| Review AI model governance policy v2.4 against PS24/16 | [Agentic Compliance Auditor](https://github.com/cherryaugusta/agentic-compliance-auditor) — rules-first, AI-assisted policy-control audit system for contradiction detection, drift analysis, and version misalignment across internal policies and external guidance |
-| Update sanctions screening policy to reflect OFSI guidance | [Agentic Compliance Auditor](https://github.com/cherryaugusta/agentic-compliance-auditor) — policy drift and version-aware comparison with typed findings and audit lineage |
-| Prompt versioning gate review — LLM v3.1 release | [AI Model Governance Workbench](https://github.com/cherryaugusta/ai-model-governance-workbench) — internal AI governance control plane for prompt and model versioning, eval gates, approvals, and rollback |
-| PolicyPulse regulatory horizon-scan — June 2025 | [PolicyPulse](https://github.com/cherryaugusta/policypulse) — RegTech-style decisioning service for typed regulatory change tracking and governance-aware policy scanning |
-| Incident post-mortem — OpsSentinel false-positive spike | [OpsSentinel](https://github.com/cherryaugusta/OpsSentinel) — real-time anomaly and incident console with explainable SecOps-oriented workflow design and scheduled evaluation |
+| Seed task in GovernanceTask Nexus                          | Portfolio project it reflects                                                                                                                                                                                                                                                                    |
+| ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Complete DORA evidence pack for Q2 submission              | [Consumer Duty Evidence Engine](https://github.com/cherryaugusta/consumer-duty-evidence-engine) — AI-assisted evidence review workflow for regulated-style artefacts, featuring structured claim extraction, evidence sufficiency scoring, contradiction detection, and audit-ready traceability |
+| Audit trail reconciliation for Consumer Duty outcomes      | [Consumer Duty Evidence Engine](https://github.com/cherryaugusta/consumer-duty-evidence-engine) — human-in-the-loop review routing and evaluation-driven safeguards for board-approved thresholds                                                                                                |
+| Review AI model governance policy v2.4 against PS24/16     | [Agentic Compliance Auditor](https://github.com/cherryaugusta/agentic-compliance-auditor) — rules-first, AI-assisted policy-control audit system for contradiction detection, drift analysis, and version misalignment across internal policies and external guidance                            |
+| Update sanctions screening policy to reflect OFSI guidance | [Agentic Compliance Auditor](https://github.com/cherryaugusta/agentic-compliance-auditor) — policy drift and version-aware comparison with typed findings and audit lineage                                                                                                                      |
+| Prompt versioning gate review — LLM v3.1 release           | [AI Model Governance Workbench](https://github.com/cherryaugusta/ai-model-governance-workbench) — internal AI governance control plane for prompt and model versioning, eval gates, approvals, and rollback                                                                                      |
+| PolicyPulse regulatory horizon-scan — June 2025            | [PolicyPulse](https://github.com/cherryaugusta/policypulse) — RegTech-style decisioning service for typed regulatory change tracking and governance-aware policy scanning                                                                                                                        |
+| Incident post-mortem — OpsSentinel false-positive spike    | [OpsSentinel](https://github.com/cherryaugusta/OpsSentinel) — real-time anomaly and incident console with explainable SecOps-oriented workflow design and scheduled evaluation                                                                                                                   |
 
 The governance categories in the application map directly to the obligation domains those projects address:
 
-| Category | Aligned projects |
-| --- | --- |
-| **Compliance** | [Consumer Duty Evidence Engine](https://github.com/cherryaugusta/consumer-duty-evidence-engine) · [Agentic Compliance Auditor](https://github.com/cherryaugusta/agentic-compliance-auditor) · [EcoRoute LEZ Optimiser](https://github.com/cherryaugusta/EcoRoute-LEZ-Optimiser) |
-| **Evidence** | [Consumer Duty Evidence Engine](https://github.com/cherryaugusta/consumer-duty-evidence-engine) — structured claim extraction, evidence sufficiency scoring, contradiction detection |
-| **AI-Gov** | [AI Model Governance Workbench](https://github.com/cherryaugusta/ai-model-governance-workbench) — prompt/model versioning, immutable release candidates, evaluation gates, approval workflows, incidents, rollback |
-| **Audit** | [Consumer Duty Evidence Engine](https://github.com/cherryaugusta/consumer-duty-evidence-engine) · [Agentic Compliance Auditor](https://github.com/cherryaugusta/agentic-compliance-auditor) — audit lineage, traceability, human review routing |
-| **Policy Review** | [Agentic Compliance Auditor](https://github.com/cherryaugusta/agentic-compliance-auditor) · [PolicyPulse](https://github.com/cherryaugusta/policypulse) · [LondonPlan RAG](https://github.com/cherryaugusta/londonplan-rag) |
-| **Regulatory** | [PolicyPulse](https://github.com/cherryaugusta/policypulse) · [FinCrime GraphOps](https://github.com/cherryaugusta/fincrime-graphops) · [EcoRoute LEZ Optimiser](https://github.com/cherryaugusta/EcoRoute-LEZ-Optimiser) |
-| **Incident** | [OpsSentinel](https://github.com/cherryaugusta/OpsSentinel) — WebSocket-backed anomaly detection, root cause workflows, and incident post-mortems |
+| Category          | Aligned projects                                                                                                                                                                                                                                                                |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Compliance**    | [Consumer Duty Evidence Engine](https://github.com/cherryaugusta/consumer-duty-evidence-engine) · [Agentic Compliance Auditor](https://github.com/cherryaugusta/agentic-compliance-auditor) · [EcoRoute LEZ Optimiser](https://github.com/cherryaugusta/EcoRoute-LEZ-Optimiser) |
+| **Evidence**      | [Consumer Duty Evidence Engine](https://github.com/cherryaugusta/consumer-duty-evidence-engine) — structured claim extraction, evidence sufficiency scoring, contradiction detection                                                                                            |
+| **AI-Gov**        | [AI Model Governance Workbench](https://github.com/cherryaugusta/ai-model-governance-workbench) — prompt/model versioning, immutable release candidates, evaluation gates, approval workflows, incidents, rollback                                                              |
+| **Audit**         | [Consumer Duty Evidence Engine](https://github.com/cherryaugusta/consumer-duty-evidence-engine) · [Agentic Compliance Auditor](https://github.com/cherryaugusta/agentic-compliance-auditor) — audit lineage, traceability, human review routing                                 |
+| **Policy Review** | [Agentic Compliance Auditor](https://github.com/cherryaugusta/agentic-compliance-auditor) · [PolicyPulse](https://github.com/cherryaugusta/policypulse) · [LondonPlan RAG](https://github.com/cherryaugusta/londonplan-rag)                                                     |
+| **Regulatory**    | [PolicyPulse](https://github.com/cherryaugusta/policypulse) · [FinCrime GraphOps](https://github.com/cherryaugusta/fincrime-graphops) · [EcoRoute LEZ Optimiser](https://github.com/cherryaugusta/EcoRoute-LEZ-Optimiser)                                                       |
+| **Incident**      | [OpsSentinel](https://github.com/cherryaugusta/OpsSentinel) — WebSocket-backed anomaly detection, root cause workflows, and incident post-mortems                                                                                                                               |
 
 The JSON export payload explicitly records this alignment. Every exported file includes:
 
@@ -150,29 +150,31 @@ Dev tools	ESLint + Prettier (zero runtime dependencies)
 
 ## Project Structure
 ```
+
 governance-task-nexus/
 ├── .github/
-│   └── workflows/
-│       └── deploy.yml          CI/CD: format, lint, and deploy to GitHub Pages
+│ └── workflows/
+│ └── deploy.yml CI/CD: format, lint, and deploy to GitHub Pages
 ├── assets/
-│   └── screenshots/
-│       └── .gitkeep            Placeholder so Git tracks the empty folder
+│ └── screenshots/
+│ └── .gitkeep Placeholder so Git tracks the empty folder
 ├── css/
-│   └── styles.css              Design tokens, layout, component styles, responsive rules
+│ └── styles.css Design tokens, layout, component styles, responsive rules
 ├── js/
-│   ├── app.js                  Entry point: bootstrap, event wiring, filters, sort, export
-│   ├── store.js                In-memory store, localStorage persistence, CRUD, seed data
-│   ├── render.js               DOM rendering: task cards, stats bar, sidebar badges
-│   ├── modal.js                Add/edit modal and confirm delete dialog logic
-│   └── toast.js                Toast notification utility
-├── .gitignore                  OS, editor, log, node_modules, dist, and env ignores
-├── .nvmrc                      Node version pin: 20
-├── .prettierrc                 Prettier formatting configuration
-├── eslint.config.js            ESLint flat config for ES module JS files
-├── index.html                  Single-page application shell with all markup and ARIA
-├── package.json                npm scripts (dev, lint, format) and dev dependencies
-├── package-lock.json           Lockfile generated by npm install, required by npm ci in CI
-└── README.md                   This file
+│ ├── app.js Entry point: bootstrap, event wiring, filters, sort, export
+│ ├── store.js In-memory store, localStorage persistence, CRUD, seed data
+│ ├── render.js DOM rendering: task cards, stats bar, sidebar badges
+│ ├── modal.js Add/edit modal and confirm delete dialog logic
+│ └── toast.js Toast notification utility
+├── .gitignore OS, editor, log, node_modules, dist, and env ignores
+├── .nvmrc Node version pin: 20
+├── .prettierrc Prettier formatting configuration
+├── eslint.config.js ESLint flat config for ES module JS files
+├── index.html Single-page application shell with all markup and ARIA
+├── package.json npm scripts (dev, lint, format) and dev dependencies
+├── package-lock.json Lockfile generated by npm install, required by npm ci in CI
+└── README.md This file
+
 ```
 ---
 
@@ -195,3 +197,4 @@ The .github/workflows/deploy.yml workflow runs on every push to main:
 6.	Uploads the repository root as the GitHub Pages artifact
 7.	Deploys to GitHub Pages via the actions/deploy-pages action
 ---
+```
