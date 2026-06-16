@@ -12,7 +12,7 @@ A production-grade task management system purpose-built for regulated environmen
 [OpsSentinel](https://github.com/cherryaugusta/OpsSentinel) ·
 [PolicyPulse](https://github.com/cherryaugusta/policypulse) ·
 [FinCrime GraphOps](https://github.com/cherryaugusta/fincrime-graphops) ·
-[LondonPlan RAG](https://github.com/cherryaugusta/londonplan-rag) ·
+[LondonPlan RAG](https://github.com/cherryaugusta/londonplan-rag-architecture.git) ·
 [Gmail MCP Server](https://github.com/cherryaugusta/gmail-mcp-server)
 
 > Part of [Cherry Augusta's developer portfolio](https://cherryaugusta.github.io/developer-portfolio-profile/projects.html) — a collection spanning Python, Django, TypeScript, React, Angular, PostgreSQL, Redis, Docker, backend engineering, frontend delivery, full-stack applications, and reviewable AI-assisted workflow systems.
@@ -105,7 +105,7 @@ GovernanceTask Nexus sits at the intersection of every governance, compliance, a
 | **Evidence**      | [Consumer Duty Evidence Engine](https://github.com/cherryaugusta/consumer-duty-evidence-engine)                                                                                                                                                                                 |
 | **AI-Gov**        | [AI Model Governance Workbench](https://github.com/cherryaugusta/ai-model-governance-workbench)                                                                                                                                                                                 |
 | **Audit**         | [Consumer Duty Evidence Engine](https://github.com/cherryaugusta/consumer-duty-evidence-engine) · [Agentic Compliance Auditor](https://github.com/cherryaugusta/agentic-compliance-auditor)                                                                                     |
-| **Policy Review** | [Agentic Compliance Auditor](https://github.com/cherryaugusta/agentic-compliance-auditor) · [PolicyPulse](https://github.com/cherryaugusta/policypulse) · [LondonPlan RAG](https://github.com/cherryaugusta/londonplan-rag)                                                     |
+| **Policy Review** | [Agentic Compliance Auditor](https://github.com/cherryaugusta/agentic-compliance-auditor) · [PolicyPulse](https://github.com/cherryaugusta/policypulse) · [LondonPlan RAG](https://github.com/cherryaugusta/londonplan-rag-architecture.git)                                                     |
 | **Regulatory**    | [PolicyPulse](https://github.com/cherryaugusta/policypulse) · [FinCrime GraphOps](https://github.com/cherryaugusta/fincrime-graphops) · [EcoRoute LEZ Optimiser](https://github.com/cherryaugusta/EcoRoute-LEZ-Optimiser)                                                       |
 | **Incident**      | [OpsSentinel](https://github.com/cherryaugusta/OpsSentinel)                                                                                                                                                                                                                     |
 
