@@ -133,7 +133,7 @@ function _seedData() {
       id: crypto.randomUUID(),
       title: "Complete DORA evidence pack for Q2 submission",
       description:
-        "Collate ICT risk management artefacts, incident register, and third-party testing results for regulatory submission deadline.",
+        "Collate ICT risk management artefacts, incident register, and third-party testing results for regulatory submission deadline. Evidence sufficiency scoring to be validated against Consumer Duty outcome mapping before sign-off.",
       category: "Evidence",
       priority: "Critical",
       status: "In Review",
@@ -146,7 +146,7 @@ function _seedData() {
       id: crypto.randomUUID(),
       title: "Review AI model governance policy v2.4 against PS24/16",
       description:
-        "Identify any policy gaps introduced by the FCA's updated model risk guidance. Annotate with change-log references.",
+        "Identify any policy gaps introduced by the FCA's updated model risk guidance. Cross-reference against the prompt versioning and eval gate controls in the AI Model Governance Workbench. Annotate with change-log references.",
       category: "AI-Gov",
       priority: "High",
       status: "Pending",
@@ -159,7 +159,7 @@ function _seedData() {
       id: crypto.randomUUID(),
       title: "Audit trail reconciliation for Consumer Duty outcomes",
       description:
-        "Cross-check evidence sufficiency scores from Q1 against board-approved thresholds. Flag any sub-threshold controls.",
+        "Cross-check evidence sufficiency scores from Q1 against board-approved thresholds. Flag any sub-threshold controls. Validate that all state transitions are captured in the audit timeline and review routing is correctly applied.",
       category: "Audit",
       priority: "High",
       status: "Blocked",
@@ -172,7 +172,7 @@ function _seedData() {
       id: crypto.randomUUID(),
       title: "Update sanctions screening policy to reflect OFSI guidance",
       description:
-        "Incorporate March 2025 OFSI amendments covering crypto-asset intermediaries and correspondent banking obligations.",
+        "Incorporate March 2025 OFSI amendments covering crypto-asset intermediaries and correspondent banking obligations. Run contradiction detection against the current control standard to surface any version drift before publication.",
       category: "Policy Review",
       priority: "Medium",
       status: "Pending",
@@ -185,7 +185,7 @@ function _seedData() {
       id: crypto.randomUUID(),
       title: "Prompt versioning gate review — LLM v3.1 release",
       description:
-        "Conduct eval gate review for production LLM prompt changes. Ensure rollback artefacts are stored in the governance workbench.",
+        "Conduct eval gate review for production LLM prompt changes ahead of the v3.1 release candidate. Verify all mandatory approvals are collected per risk-tier policy and confirm rollback artefacts are stored in the governance workbench before promotion.",
       category: "AI-Gov",
       priority: "High",
       status: "In Review",
@@ -196,9 +196,9 @@ function _seedData() {
     },
     {
       id: crypto.randomUUID(),
-      title: "PolicyPulse regulatory horizon-scan — June 2025",
+      title: "PolicyPulse regulatory horizon-scan — monthly review",
       description:
-        "Monthly scan of FCA, PRA, and EBA publications. Summarise material changes affecting model risk and operational resilience obligations.",
+        "Monthly scan of FCA, PRA, and EBA publications. Summarise material changes affecting model risk and operational resilience obligations. Route any findings that require policy amendment into the compliance review queue.",
       category: "Regulatory",
       priority: "Medium",
       status: "Completed",
@@ -211,7 +211,7 @@ function _seedData() {
       id: crypto.randomUUID(),
       title: "Incident post-mortem — OpsSentinel false-positive spike",
       description:
-        "Root cause analysis for elevated false-positive rate observed in OpsSentinel anomaly detection on 14 May. Document remediation actions.",
+        "Root cause analysis for elevated false-positive rate observed in OpsSentinel anomaly detection on 14 May. Document remediation actions, update the detection rule baseline, and record the resolution in the incident audit timeline.",
       category: "Incident",
       priority: "High",
       status: "Completed",
