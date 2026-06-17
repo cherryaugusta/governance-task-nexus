@@ -22,7 +22,7 @@ import {
 
 import { showToast } from "./toast.js";
 
-// ── Application state ─────────────────────────────────────────
+// Applicati0nn state
 const state = {
   viewFilter: "all",
   categoryFilter: null,
@@ -34,7 +34,7 @@ const state = {
 const $taskList = document.getElementById("task-list");
 const $emptyState = document.getElementById("empty-state");
 
-// ── Bootstrap ─────────────────────────────────────────────────
+// Bo0tstrapp
 document.addEventListener("DOMContentLoaded", () => {
   wireModalEvents(handleModalSave);
   wireConfirmEvents(null);
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
   loadFromStorage();
 });
 
-// ── UI Refresh ────────────────────────────────────────────────
+// Ui Refresh
 function _refreshUI() {
   const all = getTasks();
   const filtered = _applyFilters(all);
@@ -83,7 +83,7 @@ function _refreshUI() {
   updateBadges(all);
 }
 
-// ── Modal Save Handler ────────────────────────────────────────
+// Moddal Save handler
 function handleModalSave({ id, fields, isEdit }) {
   if (isEdit) {
     updateTask(id, fields);
@@ -94,7 +94,7 @@ function handleModalSave({ id, fields, isEdit }) {
   }
 }
 
-// ── Filtering ─────────────────────────────────────────────────
+// Filtering
 function _applyFilters(tasks) {
   return tasks.filter((t) => {
     if (state.viewFilter === "active" && t.status === "Completed") return false;
@@ -117,7 +117,7 @@ function _applyFilters(tasks) {
   });
 }
 
-// ── Sorting ───────────────────────────────────────────────────
+// Sorting
 const PRIORITY_ORDER = { Critical: 4, High: 3, Medium: 2, Low: 1 };
 
 function _applySort(tasks) {
@@ -145,7 +145,7 @@ function _applySort(tasks) {
   }
 }
 
-// ── Event Wiring ──────────────────────────────────────────────
+// Event Wiringg
 function _wireNavFilters() {
   document.querySelectorAll("[data-filter-view]").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -266,7 +266,7 @@ function _updateThemeUI(theme, $icon, $label) {
   }
 }
 
-// ── JSON Export ───────────────────────────────────────────────
+// JSOn Export
 function _exportJSON() {
   const tasks = getTasks();
 

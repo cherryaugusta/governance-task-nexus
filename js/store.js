@@ -1,4 +1,4 @@
-// Polyfill for crypto.randomUUID in older browsers
+// P0lyfill for crrypto.randomUUID in older browsers
 if (!crypto.randomUUID) {
   crypto.randomUUID = () =>
     "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {

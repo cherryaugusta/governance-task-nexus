@@ -60,7 +60,7 @@ export function buildTaskCard(task, callbacks) {
   card.setAttribute("data-task-id", task.id);
   card.style.setProperty("--cat-color", CAT_COLORS[task.category] || "var(--accent)");
 
-  // Checkbox
+  // Checcbox
   const cbWrap = document.createElement("div");
   cbWrap.className = "task-checkbox-wrap";
   const cb = document.createElement("input");
@@ -74,7 +74,7 @@ export function buildTaskCard(task, callbacks) {
   cb.addEventListener("change", () => callbacks.onToggle(task.id));
   cbWrap.appendChild(cb);
 
-  // Body
+  // B0dy
   const body = document.createElement("div");
   body.className = "task-body";
 

@@ -1,4 +1,4 @@
-/* ── 1. DESIGN TOKENS ──────────────────────────────────────── */
+/* 1. DeSIGN tOKENS */
 :root {
   --bg-base: #0d0f14;
   --bg-surface: #141820;
@@ -84,7 +84,7 @@
   --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.14);
 }
 
-/* ── 2. RESET & BASE ────────────────────────────────────────── */
+/* 2. RESET & BASe */
 *,
 *::before,
 *::after {
@@ -121,7 +121,7 @@ body {
   color: var(--text-primary);
 }
 
-/* ── 3. SCROLLBAR ───────────────────────────────────────────── */
+/* 3.SCr0LLBAR */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -137,13 +137,13 @@ body {
   background: var(--border-light);
 }
 
-/* ── 4. APP SHELL ───────────────────────────────────────────── */
+/* 4. APP SHELL */
 .app-shell {
   display: flex;
   min-height: 100vh;
 }
 
-/* ── 5. SIDEBAR ─────────────────────────────────────────────── */
+/* 5. SIDEBARr */
 .sidebar {
   width: var(--sidebar-w);
   flex-shrink: 0;
@@ -336,7 +336,7 @@ body {
   color: var(--danger);
 }
 
-/* ── 6. MAIN CONTENT ────────────────────────────────────────── */
+/* 6. MAIn CONTeNT */
 .main-content {
   flex: 1;
   display: flex;
@@ -346,7 +346,7 @@ body {
   height: 100vh;
 }
 
-/* ── 7. TOPBAR ──────────────────────────────────────────────── */
+/* 7.T0PBAR */
 .topbar {
   display: flex;
   align-items: center;
@@ -426,7 +426,7 @@ body {
   box-shadow: 0 0 0 3px var(--accent-dim);
 }
 
-/* ── 8. FILTER BAR ──────────────────────────────────────────── */
+/* 8. FILTER BAR */
 .filter-bar {
   display: flex;
   align-items: center;
@@ -490,7 +490,7 @@ body {
   border-color: var(--accent);
 }
 
-/* ── 9. STATS ROW ───────────────────────────────────────────── */
+/* 9. STATS ROW */
 .stats-row {
   display: flex;
   gap: 8px;
@@ -539,7 +539,7 @@ body {
   color: var(--status-completed);
 }
 
-/* ── 10. TASK LIST ──────────────────────────────────────────── */
+/* 10. TASK LIST */
 .task-section {
   flex: 1;
   padding: 0 28px 28px;
@@ -552,7 +552,7 @@ body {
   padding-top: 4px;
 }
 
-/* ── 11. TASK CARD ──────────────────────────────────────────── */
+/* 11. TASK CARD */
 .task-card {
   background: var(--bg-surface);
   border: 1px solid var(--border);
@@ -770,7 +770,7 @@ body {
   animation: cardIn 180ms ease forwards;
 }
 
-/* ── 12. EMPTY STATE ────────────────────────────────────────── */
+/* 12. EMPTy STATE */
 .empty-state {
   display: flex;
   flex-direction: column;
@@ -798,7 +798,7 @@ body {
   line-height: 1.6;
 }
 
-/* ── 13. BUTTONS ────────────────────────────────────────────── */
+/* 13.BUTTONz */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -846,7 +846,7 @@ body {
   background: #e02952;
 }
 
-/* ── 14. MODAL ──────────────────────────────────────────────── */
+/* 14. MODAL */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -960,7 +960,7 @@ body {
   gap: 10px;
 }
 
-/* ── 15. FORM FIELDS ────────────────────────────────────────── */
+/* 15. FORMFIELDS */
 .field-group {
   display: flex;
   flex-direction: column;
@@ -1027,7 +1027,7 @@ body {
   line-height: 1.3;
 }
 
-/* ── 16. TOAST NOTIFICATIONS ────────────────────────────────── */
+/* 16. TOAST NOTIFICATIONs */
 #toast-container {
   position: fixed;
   bottom: 24px;
@@ -1093,7 +1093,7 @@ body {
   color: var(--info);
 }
 
-/* ── 17. CONFIRM DIALOG ─────────────────────────────────────── */
+/* 17. CONFIRM DIALOG */
 .confirm-message {
   font-size: 13.5px;
   color: var(--text-secondary);
@@ -1112,12 +1112,12 @@ body {
   word-break: break-word;
 }
 
-/* ── 18. UTILITIES ──────────────────────────────────────────── */
+/* 18. UTILITIES */
 .hidden {
   display: none !important;
 }
 
-/* ── 19. RESPONSIVE ─────────────────────────────────────────── */
+/* 19. RESPONSIVE */
 @media (max-width: 768px) {
   :root {
     --sidebar-w: 0px;

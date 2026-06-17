@@ -148,7 +148,7 @@ function _handleSave() {
   closeModal();
 }
 
-// ── CONFIRM DELETE DIALOG ─────────────────────────────────────
+// C0NFIRM DELETe DIALOG
 let $confirmOverlay, $confirmLabel, $confirmDeleteBtn, $confirmCancelBtn;
 let _onDeleteConfirm = null;
 
